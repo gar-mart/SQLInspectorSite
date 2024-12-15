@@ -1,0 +1,272 @@
+        /* Reset margins and padding for consistency */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+
+        header {
+            background: #333;
+            color: #fff;
+            padding: 1rem;
+            text-align: center;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            background: #444;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            padding: 1rem;
+        }
+
+        nav a:hover {
+            background: #555;
+        }
+
+        .container {
+            padding: 1rem;
+        }
+
+        .card {
+            background: #fff;
+            margin: 1rem 0;
+            padding: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        footer {
+            background: #333;
+            color: #fff;
+            text-align: center;
+            padding: 1rem;
+            margin-top: 2rem;
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+            }
+
+            .card {
+                padding: 0.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header, footer {
+                font-size: 0.9rem;
+                padding: 0.5rem;
+            }
+        }
+
+        /* Centering the table */
+        .responsive-table-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 20px 0;
+            overflow-x: auto; /* Ensures horizontal scroll for smaller screens */
+        }
+
+        .responsive-table {
+            width: 90%; /* Adjust to keep the table centered */
+            max-width: 800px; /* Optional: Limit the width for better readability on large screens */
+            border-collapse: collapse;
+            margin: 0 auto;
+        }
+
+        .responsive-table th,
+        .responsive-table td {
+            text-align: left;
+            padding: 12px;
+            border: 1px solid #ddd;
+        }
+
+        .responsive-table th {
+            background-color: #f4f4f4;
+        }
+
+        @media screen and (max-width: 768px) {
+            .responsive-table,
+            .responsive-table tbody,
+            .responsive-table tr,
+            .responsive-table td {
+                display: block;
+                width: 100%;
+            }
+            .responsive-table tr {
+                margin-bottom: 15px;
+            }
+            .responsive-table td {
+                text-align: right;
+                padding-left: 50%;
+                position: relative;
+            }
+            .responsive-table td::before {
+                content: attr(data-label);
+                position: absolute;
+                left: 0;
+                padding-left: 10px;
+                text-align: left;
+                font-weight: bold;
+            }
+        }
+        .description-table-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 20px 0;
+            overflow-x: auto; /* Enable horizontal scrolling for smaller screens */
+        }
+    
+        .description-table {
+            width: 90%; /* Center the table and adjust width */
+            max-width: 800px; /* Limit the table width */
+            border-collapse: collapse;
+            font-family: Arial, sans-serif;
+            font-size: 16px;
+        }
+    
+        .description-table th,
+        .description-table td {
+            text-align: left;
+            padding: 10px;
+            border: 1px solid #ddd;
+        }
+    
+        .description-table th {
+            background-color: #333;
+            color: #fff;
+            font-weight: bold;
+        }
+    
+        .description-table td {
+            background-color: #f9f9f9;
+        }
+    
+        .description-table tbody tr:nth-child(even) td {
+            background-color: #eee;
+        }
+    
+        @media screen and (max-width: 768px) {
+            .description-table,
+            .description-table tbody,
+            .description-table tr,
+            .description-table td {
+                display: block;
+                width: 100%;
+            }
+            .description-table tr {
+                margin-bottom: 15px;
+            }
+            .description-table td {
+                text-align: right;
+                padding-left: 50%;
+                position: relative;
+            }
+            .description-table td::before {
+                content: attr(data-label);
+                position: absolute;
+                left: 0;
+                padding-left: 10px;
+                text-align: left;
+                font-weight: bold;
+            }
+        }
+        /* Styling for the descriptive text */
+        .description-text {
+            font-family: Arial, sans-serif;
+            font-size: 18px;
+            line-height: 1.6;
+            margin: 20px auto;
+            padding: 10px;
+            max-width: 800px;
+        }
+        .description-text code{
+            /*color:#0000FF;*/
+            color:#d32053;
+        }
+       
+  /* Sidebar Navigation */
+.sidebar {
+    position: fixed;
+    width: 250px;
+    height: 100%;
+    background-color: #f4f4f4;
+    border-right: 1px solid #ddd;
+    padding: 20px 10px;
+    overflow-y: auto;
+}
+
+.sidebar a {
+    display: block;
+    padding: 10px;
+    margin: 5px 0;
+    text-decoration: none;
+    color: #333;
+    font-size: 16px;
+    border-radius: 4px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.sidebar a.active {
+    background-color: #007BFF;
+    color: #fff;
+}
+
+.sidebar a:hover {
+    background-color: #ddd;
+}
+
+/* Main Content with Sidebar */
+.content {
+    margin-left: 270px; /* Leave space for the sidebar */
+    padding: 20px;
+    width: calc(100% - 270px);
+}
+
+/* Section Styling */
+section {
+    margin-bottom: 50px;
+}
+
+section h2 {
+    margin-bottom: 10px;
+    color: #007BFF;
+    font-size: 24px;
+}
+
+/* Responsive Sidebar */
+@media (max-width: 768px) {
+    .sidebar {
+        position: relative;
+        width: 100%;
+        height: auto;
+        border-right: none;
+        border-bottom: 1px solid #ddd;
+    }
+
+    .content {
+        margin-left: 0;
+        width: 100%;
+    }
+}
+
+

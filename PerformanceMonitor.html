@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mobile Friendly Page</title>
+    <link rel="stylesheet" href="style.css">
+
+
+
+</head>
+<body>
+    <header>
+        <h1>Welcome to My Mobile Friendly Page</h1>
+    </header>
+
+    <nav>
+        <a href="#home"> sp_long_running_queries ssssssHome</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
+    <div class="sidebar">
+        <a href="#sp_pfmn_get_database_backup_info" class="active">sp_pfmn_get_database_backup_info</a>
+        <a href="#sp_pfmn_get_active_transactions">sp_pfmn_get_active_transactions</a>
+        <a href="#sp_current_locks">sp_current_locks</a>
+    </div>
+    
+
+<div class="content">
+
+    <div id="sp_pfmn_get_database_backup_info">
+   
+    <div class="description-text">
+        <h2 class="codehd">sp_pfmn_get_database_backup_info</h2>
+        <br>
+        The stored procedure <code>sp_pfmn_get_database_backup_info</code> retrieves and displays detailed backup information for each database on the SQL Server instance. This includes recovery model, data size, log size, and backup details for both full and log backups.
+    </div>
+    
+    <div class="description-table-container">
+        <table class="description-table">
+            <thead>
+                <tr>
+                    <th>Column</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td data-label="Column Name">database_id</td>
+                    <td data-label="Description">The unique identifier for each database in the SQL Server instance.</td>
+                </tr>
+                <tr>
+                    <td data-label="Column Name">name</td>
+                    <td data-label="Description">The name of the database.</td>
+                </tr>
+                <tr>
+                    <td data-label="Column Name">state_desc</td>
+                    <td data-label="Description">The current state of the database (e.g., ONLINE, OFFLINE, RECOVERING).</td>
+                </tr>
+                <tr>
+                    <td data-label="Column Name">recovery_model_desc</td>
+                    <td data-label="Description">The recovery model of the database (e.g., FULL, SIMPLE, BULK_LOGGED).</td>
+                </tr>
+                <tr>
+                    <td data-label="Column Name">data_size</td>
+                    <td data-label="Description">The total size of all data files in the database, measured in megabytes (MB).</td>
+                </tr>
+                <tr>
+                    <td data-label="Column Name">log_size</td>
+                    <td data-label="Description">The total size of all log files in the database, measured in megabytes (MB).</td>
+                </tr>
+                <tr>
+                    <td data-label="Column Name">full_last_date</td>
+                    <td data-label="Description">The date and time of the last full backup for the database.</td>
+                </tr>
+                <tr>
+                    <td data-label="Column Name">full_size</td>
+                    <td data-label="Description">The size of the last full backup for the database, measured in bytes.</td>
+                </tr>
+                <tr>
+                    <td data-label="Column Name">log_last_date</td>
+                    <td data-label="Description">The date and time of the last transaction log backup for the database.</td>
+                </tr>
+                <tr>
+                    <td data-label="Column Name">log_size</td>
+                    <td data-label="Description">The size of the last transaction log backup for the database, measured in bytes.</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    </div>
+
+<div id="sp_pfmn_get_active_transactions">
+
+    <div class="description-text">
+        <h2 class="codehd">sp_pfmn_get_active_transactions</h2>
+        <br>
+        This stored procedure provides details about active transactions within the SQL Server instance, offering insights into transaction metadata, associated sessions, and their recent execution plans.
+    </div>
+    
+    <div class="description-table-container">
+        <table class="description-table">
+            <thead>
+                <tr>
+                    <th>Column Name</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td data-label="Column Name">session_id</td>
+                    <td data-label="Description">The ID of the session associated with the transaction.</td>
+                </tr>
+                <tr>
+                    <td data-label="Column Name">login_name</td>
+                    <td data-label="Description">The login name of the user initiating the session.</td>
+                </tr>
+                <tr>
+                    <td data-label="Column Name">database_name</td>
+                    <td data-label="Description">The name of the database involved in the transaction.</td>
+                </tr>
+                <tr>
+                    <td data-label="Column Name">begin_time</td>
+                    <td data-label="Description">The timestamp when the database transaction began.</td>
+                </tr>
+                <tr>
+                    <td data-label="Column Name">log_bytes</td>
+                    <td data-label="Description">The number of log bytes used by the database transaction.</td>
+                </tr>
+                <tr>
+                    <td data-label="Column Name">log_bytes_reserved</td>
+                    <td data-label="Description">The number of log bytes reserved for the transaction.</td>
+                </tr>
+                <tr>
+                    <td data-label="Column Name">sql_text</td>
+                    <td data-label="Description">The SQL statement most recently executed in the session.</td>
+                </tr>
+                <tr>
+                    <td data-label="Column Name">last_plan</td>
+                    <td data-label="Description">The execution plan associated with the most recent SQL query in the session.</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+    
+
+<div id="sp_current_locks">
+
+    <div class="description-text">
+        <h2 class="codehd">sp_current_locks</h2>
+        <br>
+        This stored procedure retrieves information about the current locks held by sessions on resources within the database where it is executed. It provides insights into locking activity, which is crucial for understanding and resolving performance issues caused by contention.
+        This stored procedure retrieves information about the current locks held by sessions on resources within the database where it is executed. It provides insights into locking activity, which is crucial for understanding and resolving performance issues caused by contention.
+        This stored procedure retrieves information about the current locks held by sessions on resources within the database where it is executed. It provides insights into locking activity, which is crucial for understanding and resolving performance issues caused by contention.
+        This stored procedure retrieves information about the current locks held by sessions on resources within the database where it is executed. It provides insights into locking activity, which is crucial for understanding and resolving performance issues caused by contention.
+        This stored procedure retrieves information about the current locks held by sessions on resources within the database where it is executed. It provides insights into locking activity, which is crucial for understanding and resolving performance issues caused by contention.
+        This stored procedure retrieves information about the current locks held by sessions on resources within the database where it is executed. It provides insights into locking activity, which is crucial for understanding and resolving performance issues caused by contention.
+    </div>
+    
+    <div class="description-table-container">
+        <table class="description-table">
+            <thead>
+                <tr>
+                    <th>Column Name</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td data-label="Column Name">session_id</td>
+                    <td data-label="Description">The ID of the session holding or requesting the lock.</td>
+                </tr>
+                <tr>
+                    <td data-label="Column Name">database_name</td>
+                    <td data-label="Description">The name of the database where the lock is held.</td>
+                </tr>
+                <tr>
+                    <td data-label="Column Name">resource_associated_entity_id</td>
+                    <td data-label="Description">The ID of the resource associated with the lock (e.g., object, partition).</td>
+                </tr>
+                <tr>
+                    <td data-label="Column Name">entity_name</td>
+                    <td data-label="Description">The name of the resource associated with the lock (e.g., table or index).</td>
+                </tr>
+                <tr>
+                    <td data-label="Column Name">index_id</td>
+                    <td data-label="Description">The ID of the index associated with the lock, if applicable.</td>
+                </tr>
+                <tr>
+                    <td data-label="Column Name">resource</td>
+                    <td data-label="Description">The type of resource being locked (e.g., OBJECT, KEY, PAGE, EXTENT).</td>
+                </tr>
+                <tr>
+                    <td data-label="Column Name">description</td>
+                    <td data-label="Description">Additional details about the locked resource (e.g., page ranges, key details).</td>
+                </tr>
+                <tr>
+                    <td data-label="Column Name">mode</td>
+                    <td data-label="Description">The lock mode (e.g., SHARED, EXCLUSIVE), which indicates the type of operation requiring the lock.</td>
+                </tr>
+                <tr>
+                    <td data-label="Column Name">status</td>
+                    <td data-label="Description">The status of the lock request (e.g., GRANTED, WAITING).</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    
+</div>
+</div>
+
+<script>
+    // Highlight active sidebar link based on scroll position
+    const sections = document.querySelectorAll('.content > div');
+    const navLinks = document.querySelectorAll('.sidebar a');
+
+    window.addEventListener('scroll', () => {
+        let current = '%$';
+
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop - 70; // Offset for header
+            if (scrollY >= sectionTop) {
+                current = section.getAttribute('id');
+            }
+        });
+
+        navLinks.forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('href').includes(current)) {
+                link.classList.add('active');
+            }
+        });
+    });
+
+    // Smooth scrolling for sidebar links
+    navLinks.forEach(link => {
+        link.addEventListener('click', event => {
+            event.preventDefault();
+            const targetSection = document.querySelector(link.getAttribute('href'));
+            targetSection.scrollIntoView({ behavior: 'smooth' });
+        });
+    });
+</script>
+
+
+    
+    <footer>
+        <p>&copy; 2024 My Website</p>
+    </footer>
+</body>
+</html>
