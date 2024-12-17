@@ -209,6 +209,101 @@
     </div>
     
 </div>
+
+
+
+<div id="sp_pfmn_detect_long_running_jobs">
+    <div class="description-text">
+        <h2 class="codehd">sp_pfmn_detect_long_running_jobs</h2>
+        <br>
+        This stored procedure identifies long-running SQL Server Agent jobs by analyzing the execution time of currently running jobs and comparing it against historical averages or predefined thresholds. It can optionally send email notifications when long-running jobs are detected.
+        <br />
+        <h3 class="table-header">Parameters</h3>
+        <br />
+       <p> <code>@database_name</code> - Name of the database </p> <br />
+       <p> <code>@min_frag</code> - Minimum fragmentation value </p> <br />
+       <p> <code>@min_table_size</code> - Minimum table size in pages </p> <br />
+       <p> <code>@print_command</code> - Flag to print command, print if 1, not otherwise </p> <br />
+       <p> <code>@execute_command</code> - Flag to execute command, if 0 it won't execute, just print the command if specified </p>
+
+    </div>
+
+    <div class="description-text">
+        <h3 class="table-header">Output Tables</h3>
+        <p>
+            The procedure uses internal temporary tables to process data. Below are the primary temporary tables and their purposes:
+        </p>
+        
+        <!-- Table 1: @RunningJobs -->
+        <h4>1. <code>@RunningJobs</code></h4>
+        <p>Captures information about currently running SQL Server Agent jobs.</p>
+        <div class="description-table-container">
+            <table class="description-table">
+                <thead>
+                    <tr>
+                        <th>Column Name</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td data-label="Column Name">job_id</td>
+                        <td data-label="Description">Unique identifier for the job.</td>
+                    </tr>
+                    <tr>
+                        <td data-label="Column Name">job_state</td>
+                        <td data-label="Description">State of the job (e.g., running).</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    
+        <!-- Table 2: @DetectedJobs -->
+        <h4>2. <code>@DetectedJobs</code></h4>
+        <p>Stores details of jobs identified as long-running.</p>
+        <div class="description-table-container">
+            <table class="description-table">
+                <thead>
+                    <tr>
+                        <th>Column Name</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td data-label="Column Name">job_id</td>
+                        <td data-label="Description">Unique identifier for the job.</td>
+                    </tr>
+                    <tr>
+                        <td data-label="Column Name">job_name</td>
+                        <td data-label="Description">The name of the job.</td>
+                    </tr>
+                    <tr>
+                        <td data-label="Column Name">execution_date</td>
+                        <td data-label="Description">Timestamp when the job execution started.</td>
+                    </tr>
+                    <tr>
+                        <td data-label="Column Name">avg_duration</td>
+                        <td data-label="Description">Average execution duration (in seconds) based on historical data.</td>
+                    </tr>
+                    <tr>
+                        <td data-label="Column Name">max_duration</td>
+                        <td data-label="Description">Threshold duration (in seconds) for detecting long-running jobs.</td>
+                    </tr>
+                    <tr>
+                        <td data-label="Column Name">current_duration</td>
+                        <td data-label="Description">Current execution duration (in seconds).</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    
+</div>
+
+
+
+
 </div>
 
 <script>

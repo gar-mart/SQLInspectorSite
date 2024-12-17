@@ -203,7 +203,10 @@
             /*color:#0000FF;*/
             color:#d32053;
         }
-       
+        .description-text p code{
+            /*color:#0000FF;*/
+            color:#2020d3;
+        }
   /* Sidebar Navigation */
 .sidebar {
     position: fixed;
@@ -268,5 +271,6 @@ section h2 {
         width: 100%;
     }
 }
+
 
 
