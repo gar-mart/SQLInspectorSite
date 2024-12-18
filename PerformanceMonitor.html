@@ -21,7 +21,7 @@
     </nav>
 
     <div class="sidebar">
-        <a href="#sp_pfmn_get_database_backup_info" class="active">sp_pfmn_get_database_backup_info</a>
+        <a href="#sp_pfmn_get_database_backup_info">sp_pfmn_get_database_backup_info</a>
         <a href="#sp_pfmn_get_active_transactions">sp_pfmn_get_active_transactions</a>
         <a href="#sp_current_locks">sp_current_locks</a>
     </div>
@@ -29,7 +29,7 @@
 
 <div class="content">
 
-    <div id="sp_pfmn_get_database_backup_info">
+        <div id="sp_pfmn_get_database_backup_info">
    
     <div class="description-text">
         <h2 class="codehd">sp_pfmn_get_database_backup_info</h2>
@@ -89,9 +89,9 @@
             </tbody>
         </table>
     </div>
-    </div>
-
-<div id="sp_pfmn_get_active_transactions">
+        </div>
+    
+    <div id="sp_pfmn_get_active_transactions">
 
     <div class="description-text">
         <h2 class="codehd">sp_pfmn_get_active_transactions</h2>
@@ -143,10 +143,10 @@
             </tbody>
         </table>
     </div>
-</div>
+    </div>
+        
     
-
-<div id="sp_current_locks">
+    <div id="sp_current_locks">
 
     <div class="description-text">
         <h2 class="codehd">sp_current_locks</h2>
@@ -208,60 +208,60 @@
         </table>
     </div>
     
-</div>
-
-
-
-<div id="sp_pfmn_detect_long_running_jobs">
-    <div class="description-text">
-        <h2 class="codehd">sp_pfmn_detect_long_running_jobs</h2>
-        <br>
-        This stored procedure identifies long-running SQL Server Agent jobs by analyzing the execution time of currently running jobs and comparing it against historical averages or predefined thresholds. It can optionally send email notifications when long-running jobs are detected.
-        <br />
-        <h3 class="table-header">Parameters</h3>
-        <br />
-       <p> <code>@database_name</code> - Name of the database </p> <br />
-       <p> <code>@min_frag</code> - Minimum fragmentation value </p> <br />
-       <p> <code>@min_table_size</code> - Minimum table size in pages </p> <br />
-       <p> <code>@print_command</code> - Flag to print command, print if 1, not otherwise </p> <br />
-       <p> <code>@execute_command</code> - Flag to execute command, if 0 it won't execute, just print the command if specified </p>
-
     </div>
-
-    <div class="description-text">
-        <h3 class="table-header">Output Tables</h3>
-        <p>
-            The procedure uses internal temporary tables to process data. Below are the primary temporary tables and their purposes:
-        </p>
+    
+    
+    
+    <div id="sp_pfmn_detect_long_running_jobs">
+        <div class="description-text">
+            <h2 class="codehd">sp_pfmn_detect_long_running_jobs</h2>
+            <br>
+            This stored procedure identifies long-running SQL Server Agent jobs by analyzing the execution time of currently running jobs and comparing it against historical averages or predefined thresholds. It can optionally send email notifications when long-running jobs are detected.
+            <br />
+            <h3 class="table-header">Parameters</h3>
+            <br />
+           <p> <code>@database_name</code> - Name of the database </p> <br />
+           <p> <code>@min_frag</code> - Minimum fragmentation value </p> <br />
+           <p> <code>@min_table_size</code> - Minimum table size in pages </p> <br />
+           <p> <code>@print_command</code> - Flag to print command, print if 1, not otherwise </p> <br />
+           <p> <code>@execute_command</code> - Flag to execute command, if 0 it won't execute, just print the command if specified </p>
         
-        <!-- Table 1: @RunningJobs -->
-        <h4>1. <code>@RunningJobs</code></h4>
-        <p>Captures information about currently running SQL Server Agent jobs.</p>
-        <div class="description-table-container">
-            <table class="description-table">
-                <thead>
-                    <tr>
-                        <th>Column Name</th>
-                        <th>Description</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td data-label="Column Name">job_id</td>
-                        <td data-label="Description">Unique identifier for the job.</td>
-                    </tr>
-                    <tr>
-                        <td data-label="Column Name">job_state</td>
-                        <td data-label="Description">State of the job (e.g., running).</td>
-                    </tr>
-                </tbody>
-            </table>
         </div>
     
-        <!-- Table 2: @DetectedJobs -->
-        <h4>2. <code>@DetectedJobs</code></h4>
-        <p>Stores details of jobs identified as long-running.</p>
-        <div class="description-table-container">
+        <div class="description-text">
+            <h3 class="table-header">Output Tables</h3>
+            <p>
+                The procedure uses internal temporary tables to process data. Below are the primary temporary tables and their purposes:
+            </p>
+            
+            <!-- Table 1: @RunningJobs -->
+            <h4>1. <code>@RunningJobs</code></h4>
+            <p>Captures information about currently running SQL Server Agent jobs.</p>
+            <div class="description-table-container">
+                <table class="description-table">
+                    <thead>
+                        <tr>
+                            <th>Column Name</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td data-label="Column Name">job_id</td>
+                            <td data-label="Description">Unique identifier for the job.</td>
+                        </tr>
+                        <tr>
+                            <td data-label="Column Name">job_state</td>
+                            <td data-label="Description">State of the job (e.g., running).</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        
+            <!-- Table 2: @DetectedJobs -->
+            <h4>2. <code>@DetectedJobs</code></h4>
+            <p>Stores details of jobs identified as long-running.</p>
+            <div class="description-table-container">
             <table class="description-table">
                 <thead>
                     <tr>
@@ -296,12 +296,192 @@
                     </tr>
                 </tbody>
             </table>
+            </div>
         </div>
+        
+    </div>
+
+    <div id="sp_pfmn_get_agent_job_info">
+        <!-- Procedure Description -->
+        <div class="description-text">
+            <h2 class="codehd">sp_pfmn_get_agent_job_info</h2>
+            <br>
+            This stored procedure retrieves detailed information about SQL Server Agent jobs, offering insights into job execution history, job owners, run statuses, and specific steps.
+            <br />
+    
+            <!-- Input Parameters -->
+            <h3 class="table-header">Parameters</h3>
+            <br />
+            <p><code>@execution_start_date</code> - Filters jobs by execution start date. If NULL, no filter is applied.</p> <br />
+            <p><code>@job_owner</code> - Filters jobs by the owner’s name. If NULL, no filter is applied.</p> <br />
+            <p><code>@run_status</code> - Filters jobs by their execution status. Example values: 0 (Failed), 1 (Succeeded). If NULL, no filter is applied.</p> <br />
+            <p><code>@step_name</code> - Filters jobs by the name of a specific step. If NULL, no filter is applied.</p>
+        </div>
+    
+        <!-- Key Insights Section -->
+        <div class="description-text">
+            <h3 class="table-header">Key Insights</h3>
+            <p><strong>Job Execution Analysis:</strong></p>
+            <ul>
+                <li>Retrieve jobs based on start date and execution history.</li>
+            </ul>
+            <p><strong>Job Ownership Insights:</strong></p>
+            <ul>
+                <li>Display job owners to manage access and responsibilities.</li>
+            </ul>
+            <p><strong>Failure Detection:</strong></p>
+            <ul>
+                <li>Identify jobs that failed based on historical data.</li>
+            </ul>
+            <p><strong>Step-Level Analysis:</strong></p>
+            <ul>
+                <li>Drill down into specific job steps to troubleshoot issues.</li>
+            </ul>
+        </div>
+    
+        <!-- Output Tables -->
+        <div class="description-text">
+            <h3 class="table-header">Output Sections</h3>
+            <p>The procedure provides the following output sections to analyze SQL Server Agent jobs:</p>
+        
+            <!-- Section 1 -->
+            <h4>1. <strong>Jobs Sorted by Execution Start Time</strong></h4>
+            <p>Provides details of jobs that started after a specific date.</p>
+            <div class="description-table-container">
+                <table class="description-table">
+                    <thead>
+                        <tr>
+                            <th>Column Name</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td data-label="Column Name">job_name</td>
+                            <td data-label="Description">The name of the SQL Server Agent job.</td>
+                        </tr>
+                        <tr>
+                            <td data-label="Column Name">description</td>
+                            <td data-label="Description">A description of the job.</td>
+                        </tr>
+                        <tr>
+                            <td data-label="Column Name">start_execution_date</td>
+                            <td data-label="Description">The date and time the job started execution.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        
+            <!-- Section 2 -->
+            <h4>2. <strong>Jobs with Their Owners</strong></h4>
+            <p>Displays the owners of SQL Server Agent jobs.</p>
+            <div class="description-table-container">
+                <table class="description-table">
+                    <thead>
+                        <tr>
+                            <th>Column Name</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td data-label="Column Name">job_name</td>
+                            <td data-label="Description">The name of the SQL Server Agent job.</td>
+                        </tr>
+                        <tr>
+                            <td data-label="Column Name">job_owner</td>
+                            <td data-label="Description">The name of the user who owns the job.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        
+            <!-- Section 3 -->
+            <h4><strong>Jobs That Failed Execution</strong></h4>
+            <p>Provides details of jobs that failed execution, including severity and messages.</p>
+            <div class="description-table-container">
+                <table class="description-table">
+                    <thead>
+                        <tr>
+                            <th>Column Name</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td data-label="Column Name">job_name</td>
+                            <td data-label="Description">The name of the SQL Server Agent job.</td>
+                        </tr>
+                        <tr>
+                            <td data-label="Column Name">step_name</td>
+                            <td data-label="Description">The name of the specific step in the job.</td>
+                        </tr>
+                        <tr>
+                            <td data-label="Column Name">sql_severity</td>
+                            <td data-label="Description">The severity level of the SQL error, if any.</td>
+                        </tr>
+                        <tr>
+                            <td data-label="Column Name">message</td>
+                            <td data-label="Description">The error message associated with the job or step failure.</td>
+                        </tr>
+                        <tr>
+                            <td data-label="Column Name">run_date</td>
+                            <td data-label="Description">The date the job was run.</td>
+                        </tr>
+                        <tr>
+                            <td data-label="Column Name">run_time</td>
+                            <td data-label="Description">The time the job was run.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        
+            <!-- Section 4 -->
+            <h4>4. <strong>Jobs with Specific Step Name</strong></h4>
+            <p>Provides details of jobs containing a specific step name.</p>
+            <div class="description-table-container">
+                <table class="description-table">
+                    <thead>
+                        <tr>
+                            <th>Column Name</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td data-label="Column Name">job_name</td>
+                            <td data-label="Description">The name of the SQL Server Agent job.</td>
+                        </tr>
+                        <tr>
+                            <td data-label="Column Name">step_name</td>
+                            <td data-label="Description">The name of the specific step in the job.</td>
+                        </tr>
+                        <tr>
+                            <td data-label="Column Name">sql_severity</td>
+                            <td data-label="Description">The severity level of the SQL error, if any.</td>
+                        </tr>
+                        <tr>
+                            <td data-label="Column Name">message</td>
+                            <td data-label="Description">The error message associated with the job or step.</td>
+                        </tr>
+                        <tr>
+                            <td data-label="Column Name">run_date</td>
+                            <td data-label="Description">The date the job was run.</td>
+                        </tr>
+                        <tr>
+                            <td data-label="Column Name">run_time</td>
+                            <td data-label="Description">The time the job was run.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        
+
+
+
     </div>
     
-</div>
-
-
 
 
 </div>
