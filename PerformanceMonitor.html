@@ -482,7 +482,85 @@
 
     </div>
     
-
+    <div id="sp_pfmn_get_costly_missing_indexes">
+        <!-- Procedure Description -->
+        <div class="description-text">
+            <h2 class="codehd">sp_pfmn_get_costly_missing_indexes</h2>
+            <br>
+            This stored procedure identifies and lists costly missing indexes in one or more databases. Missing indexes are ranked by their potential performance benefit, calculated based on the user impact and query cost.
+        </div>
+    
+        <!-- Input Parameters -->
+        <div class="description-text">
+            <h3 class="table-header">Parameters</h3>
+            <br />
+            <p><code>@dbName</code> - Specifies the name of a database to analyze. If <code>NULL</code>, returns missing indexes for all databases.</p>
+            <br />
+            <p><code>@isCurrent</code> - If set to <code>1</code>, returns missing indexes for the current database only.</p>
+        </div>
+    
+        <!-- Output Columns -->
+        <div class="description-text">
+            <h3 class="table-header">Output Columns</h3>
+            <div class="description-table-container">
+                <table class="description-table">
+                    <thead>
+                        <tr>
+                            <th>Column Name</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td data-label="Column Name">group_handle</td>
+                            <td data-label="Description">The unique identifier for the missing index group.</td>
+                        </tr>
+                        <tr>
+                            <td data-label="Column Name">index_advantage</td>
+                            <td data-label="Description">A calculated metric that estimates the advantage of creating the missing index.</td>
+                        </tr>
+                        <tr>
+                            <td data-label="Column Name">avg_total_user_cost</td>
+                            <td data-label="Description">The average cost of queries that would benefit from the missing index.</td>
+                        </tr>
+                        <tr>
+                            <td data-label="Column Name">avg_user_impact</td>
+                            <td data-label="Description">The estimated percentage improvement in query performance if the missing index is created.</td>
+                        </tr>
+                        <tr>
+                            <td data-label="Column Name">user_seeks</td>
+                            <td data-label="Description">The number of times queries attempted to use an index for seek operations but found it missing.</td>
+                        </tr>
+                        <tr>
+                            <td data-label="Column Name">user_scans</td>
+                            <td data-label="Description">The number of times queries attempted to use an index for scan operations but found it missing.</td>
+                        </tr>
+                        <tr>
+                            <td data-label="Column Name">database_name</td>
+                            <td data-label="Description">The name of the database where the missing index was identified.</td>
+                        </tr>
+                        <tr>
+                            <td data-label="Column Name">table_name</td>
+                            <td data-label="Description">The name of the table where the missing index is suggested.</td>
+                        </tr>
+                        <tr>
+                            <td data-label="Column Name">equality_columns</td>
+                            <td data-label="Description">The columns used in equality comparisons in the queries benefiting from the index.</td>
+                        </tr>
+                        <tr>
+                            <td data-label="Column Name">inequality_columns</td>
+                            <td data-label="Description">The columns used in inequality comparisons in the queries benefiting from the index.</td>
+                        </tr>
+                        <tr>
+                            <td data-label="Column Name">included_columns</td>
+                            <td data-label="Description">The columns that should be included in the index to cover queries effectively.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    
 
 </div>
 
