@@ -562,6 +562,109 @@
     </div>
     
 
+    <div id="sp_pfmn_get_index_fragmentation">
+        <!-- Procedure Description -->
+        <div class="description-text">
+            <h2 class="codehd">sp_pfmn_get_index_fragmentation</h2>
+            <br>
+            This stored procedure analyzes index fragmentation across one or more databases, providing insights for maintenance actions like rebuilding or reorganizing indexes to improve performance.
+        </div>
+    
+        <!-- Purpose Section -->
+        <div class="description-text">
+            <h3 class="table-header">Purpose</h3>
+            <p>This procedure helps database administrators:</p>
+            <ul>
+                <li><strong>Identify Fragmentation:</strong>
+                    <ul>
+                        <li>Highlight indexes with fragmentation above the specified threshold.</li>
+                    </ul>
+                </li>
+                <li><strong>Focus on Large Tables:</strong>
+                    <ul>
+                        <li>Analyze indexes only for tables meeting the minimum size criteria.</li>
+                    </ul>
+                </li>
+                <li><strong>Optimize Index Maintenance:</strong>
+                    <ul>
+                        <li>Provide actionable insights for index maintenance to improve query performance.</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    
+        <!-- Input Parameters -->
+        <div class="description-text">
+            <h3 class="table-header">Input Parameters</h3>
+            <br />
+            <p><code>@database_name</code> - The name of the database to analyze. If <code>NULL</code>, analyzes all eligible databases.</p>
+            <br />
+            <p><code>@min_frag</code> - The minimum fragmentation percentage for filtering indexes.</p>
+            <br />
+            <p><code>@min_table_size</code> - The minimum table size (in pages) to filter the results.</p>
+            <br />
+            <p><code>@print_command</code> - If set to <code>1</code>, prints the dynamic SQL commands for debugging purposes.</p>
+            <br />
+            <p><code>@execute_command</code> - If set to <code>1</code>, executes the generated SQL commands to analyze fragmentation.</p>
+        </div>
+    
+        <!-- Output Columns -->
+        <div class="description-text">
+            <h3 class="table-header">Output Columns</h3>
+            <div class="description-table-container">
+                <table class="description-table">
+                    <thead>
+                        <tr>
+                            <th>Column Name</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td data-label="Column Name">database_name</td>
+                            <td data-label="Description">The name of the database containing the index.</td>
+                        </tr>
+                        <tr>
+                            <td data-label="Column Name">object_name</td>
+                            <td data-label="Description">The name of the table or view containing the index.</td>
+                        </tr>
+                        <tr>
+                            <td data-label="Column Name">index_name</td>
+                            <td data-label="Description">The name of the index being analyzed.</td>
+                        </tr>
+                        <tr>
+                            <td data-label="Column Name">schema_name</td>
+                            <td data-label="Description">The schema of the table or view containing the index.</td>
+                        </tr>
+                        <tr>
+                            <td data-label="Column Name">avg_fragmentation_percent</td>
+                            <td data-label="Description">The average fragmentation percentage of the index.</td>
+                        </tr>
+                        <tr>
+                            <td data-label="Column Name">index_type_desc</td>
+                            <td data-label="Description">The type of index (e.g., CLUSTERED, NONCLUSTERED).</td>
+                        </tr>
+                        <tr>
+                            <td data-label="Column Name">allocation_unit_type</td>
+                            <td data-label="Description">The type of allocation unit (e.g., IN_ROW_DATA, LOB_DATA).</td>
+                        </tr>
+                        <tr>
+                            <td data-label="Column Name">has_large_data_type</td>
+                            <td data-label="Description">Indicates whether the table contains large data types (e.g., LOB, XML, or MAX types).</td>
+                        </tr>
+                        <tr>
+                            <td data-label="Column Name">table_size</td>
+                            <td data-label="Description">The size of the table in pages.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    
+
+
+
 </div>
 
 <script>
