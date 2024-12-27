@@ -47,43 +47,43 @@
             </thead>
             <tbody>
                 <tr>
-                    <td data-label="Column Name">database_id</td>
+                    <td data-label="Column">database_id</td>
                     <td data-label="Description">The unique identifier for each database in the SQL Server instance.</td>
                 </tr>
                 <tr>
-                    <td data-label="Column Name">name</td>
+                    <td data-label="Column">name</td>
                     <td data-label="Description">The name of the database.</td>
                 </tr>
                 <tr>
-                    <td data-label="Column Name">state_desc</td>
+                    <td data-label="Column">state_desc</td>
                     <td data-label="Description">The current state of the database (e.g., ONLINE, OFFLINE, RECOVERING).</td>
                 </tr>
                 <tr>
-                    <td data-label="Column Name">recovery_model_desc</td>
+                    <td data-label="Column">recovery_model_desc</td>
                     <td data-label="Description">The recovery model of the database (e.g., FULL, SIMPLE, BULK_LOGGED).</td>
                 </tr>
                 <tr>
-                    <td data-label="Column Name">data_size</td>
+                    <td data-label="Column">data_size</td>
                     <td data-label="Description">The total size of all data files in the database, measured in megabytes (MB).</td>
                 </tr>
                 <tr>
-                    <td data-label="Column Name">log_size</td>
+                    <td data-label="Column">log_size</td>
                     <td data-label="Description">The total size of all log files in the database, measured in megabytes (MB).</td>
                 </tr>
                 <tr>
-                    <td data-label="Column Name">full_last_date</td>
+                    <td data-label="Column">full_last_date</td>
                     <td data-label="Description">The date and time of the last full backup for the database.</td>
                 </tr>
                 <tr>
-                    <td data-label="Column Name">full_size</td>
+                    <td data-label="Column">full_size</td>
                     <td data-label="Description">The size of the last full backup for the database, measured in bytes.</td>
                 </tr>
                 <tr>
-                    <td data-label="Column Name">log_last_date</td>
+                    <td data-label="Column">log_last_date</td>
                     <td data-label="Description">The date and time of the last transaction log backup for the database.</td>
                 </tr>
                 <tr>
-                    <td data-label="Column Name">log_size</td>
+                    <td data-label="Column">log_size</td>
                     <td data-label="Description">The size of the last transaction log backup for the database, measured in bytes.</td>
                 </tr>
             </tbody>
@@ -91,6 +91,86 @@
     </div>
         </div>
     
+        <div id="sp_table_sizes">
+            <!-- Procedure Description -->
+            <div class="description-text">
+                <h2 class="codehd">sp_table_sizes</h2>
+                <br>
+                This stored procedure calculates and returns detailed information about table sizes in the database. It provides insights into row counts, total allocated space, used space, and unused space for tables, optionally filtered by schema.
+            </div>
+        
+            <!-- Purpose Section -->
+            <div class="description-text">
+                <h3 class="table-header">Purpose</h3>
+                <p>This procedure helps database administrators:</p>
+                <ul>
+                    <li><strong>Analyze Table Sizes:</strong>
+                        <ul>
+                            <li>View the size of tables in terms of rows, total allocated space, used space, and unused space.</li>
+                        </ul>
+                    </li>
+                    <li><strong>Schema-Specific Analysis:</strong>
+                        <ul>
+                            <li>Limit the analysis to tables within a specified schema.</li>
+                        </ul>
+                    </li>
+                    <li><strong>Monitor Unused Space:</strong>
+                        <ul>
+                            <li>Identify tables with significant unused space for optimization.</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        
+            <!-- Input Parameter -->
+            <div class="description-text">
+                <h3 class="table-header">Input Parameter</h3>
+                <br />
+                <p><code>@schema</code> - Specifies the schema for filtering the tables. If <code>NULL</code>, analyzes all schemas.</p>
+            </div>
+        
+            <!-- Output Columns -->
+            <div class="description-text">
+                <h3 class="table-header">Output Columns</h3>
+                <div class="description-table-container">
+                    <table class="description-table">
+                        <thead>
+                            <tr>
+                                <th>Column</th>
+                                <th>Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td data-label="Column">schema_name</td>
+                                <td data-label="Description">The name of the schema containing the table.</td>
+                            </tr>
+                            <tr>
+                                <td data-label="Column">table_name</td>
+                                <td data-label="Description">The name of the table.</td>
+                            </tr>
+                            <tr>
+                                <td data-label="Column">row_counts</td>
+                                <td data-label="Description">The number of rows in the table.</td>
+                            </tr>
+                            <tr>
+                                <td data-label="Column">total_space_kb</td>
+                                <td data-label="Description">The total allocated space for the table, in kilobytes.</td>
+                            </tr>
+                            <tr>
+                                <td data-label="Column">used_space_kb</td>
+                                <td data-label="Description">The space actively used by the table, in kilobytes.</td>
+                            </tr>
+                            <tr>
+                                <td data-label="Column">unused_space_kb</td>
+                                <td data-label="Description">The allocated but unused space for the table, in kilobytes.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        
     <div id="sp_pfmn_get_active_transactions">
 
     <div class="description-text">
@@ -103,41 +183,41 @@
         <table class="description-table">
             <thead>
                 <tr>
-                    <th>Column Name</th>
+                    <th>Column</th>
                     <th>Description</th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
-                    <td data-label="Column Name">session_id</td>
+                    <td data-label="Column">session_id</td>
                     <td data-label="Description">The ID of the session associated with the transaction.</td>
                 </tr>
                 <tr>
-                    <td data-label="Column Name">login_name</td>
+                    <td data-label="Column">login_name</td>
                     <td data-label="Description">The login name of the user initiating the session.</td>
                 </tr>
                 <tr>
-                    <td data-label="Column Name">database_name</td>
+                    <td data-label="Column">database_name</td>
                     <td data-label="Description">The name of the database involved in the transaction.</td>
                 </tr>
                 <tr>
-                    <td data-label="Column Name">begin_time</td>
+                    <td data-label="Column">begin_time</td>
                     <td data-label="Description">The timestamp when the database transaction began.</td>
                 </tr>
                 <tr>
-                    <td data-label="Column Name">log_bytes</td>
+                    <td data-label="Column">log_bytes</td>
                     <td data-label="Description">The number of log bytes used by the database transaction.</td>
                 </tr>
                 <tr>
-                    <td data-label="Column Name">log_bytes_reserved</td>
+                    <td data-label="Column">log_bytes_reserved</td>
                     <td data-label="Description">The number of log bytes reserved for the transaction.</td>
                 </tr>
                 <tr>
-                    <td data-label="Column Name">sql_text</td>
+                    <td data-label="Column">sql_text</td>
                     <td data-label="Description">The SQL statement most recently executed in the session.</td>
                 </tr>
                 <tr>
-                    <td data-label="Column Name">last_plan</td>
+                    <td data-label="Column">last_plan</td>
                     <td data-label="Description">The execution plan associated with the most recent SQL query in the session.</td>
                 </tr>
             </tbody>
@@ -163,45 +243,45 @@
         <table class="description-table">
             <thead>
                 <tr>
-                    <th>Column Name</th>
+                    <th>Column</th>
                     <th>Description</th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
-                    <td data-label="Column Name">session_id</td>
+                    <td data-label="Column">session_id</td>
                     <td data-label="Description">The ID of the session holding or requesting the lock.</td>
                 </tr>
                 <tr>
-                    <td data-label="Column Name">database_name</td>
+                    <td data-label="Column">database_name</td>
                     <td data-label="Description">The name of the database where the lock is held.</td>
                 </tr>
                 <tr>
-                    <td data-label="Column Name">resource_associated_entity_id</td>
+                    <td data-label="Column">resource_associated_entity_id</td>
                     <td data-label="Description">The ID of the resource associated with the lock (e.g., object, partition).</td>
                 </tr>
                 <tr>
-                    <td data-label="Column Name">entity_name</td>
+                    <td data-label="Column">entity_name</td>
                     <td data-label="Description">The name of the resource associated with the lock (e.g., table or index).</td>
                 </tr>
                 <tr>
-                    <td data-label="Column Name">index_id</td>
+                    <td data-label="Column">index_id</td>
                     <td data-label="Description">The ID of the index associated with the lock, if applicable.</td>
                 </tr>
                 <tr>
-                    <td data-label="Column Name">resource</td>
+                    <td data-label="Column">resource</td>
                     <td data-label="Description">The type of resource being locked (e.g., OBJECT, KEY, PAGE, EXTENT).</td>
                 </tr>
                 <tr>
-                    <td data-label="Column Name">description</td>
+                    <td data-label="Column">description</td>
                     <td data-label="Description">Additional details about the locked resource (e.g., page ranges, key details).</td>
                 </tr>
                 <tr>
-                    <td data-label="Column Name">mode</td>
+                    <td data-label="Column">mode</td>
                     <td data-label="Description">The lock mode (e.g., SHARED, EXCLUSIVE), which indicates the type of operation requiring the lock.</td>
                 </tr>
                 <tr>
-                    <td data-label="Column Name">status</td>
+                    <td data-label="Column">status</td>
                     <td data-label="Description">The status of the lock request (e.g., GRANTED, WAITING).</td>
                 </tr>
             </tbody>
@@ -241,17 +321,17 @@
                 <table class="description-table">
                     <thead>
                         <tr>
-                            <th>Column Name</th>
+                            <th>Column</th>
                             <th>Description</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td data-label="Column Name">job_id</td>
+                            <td data-label="Column">job_id</td>
                             <td data-label="Description">Unique identifier for the job.</td>
                         </tr>
                         <tr>
-                            <td data-label="Column Name">job_state</td>
+                            <td data-label="Column">job_state</td>
                             <td data-label="Description">State of the job (e.g., running).</td>
                         </tr>
                     </tbody>
@@ -265,33 +345,33 @@
             <table class="description-table">
                 <thead>
                     <tr>
-                        <th>Column Name</th>
+                        <th>Column</th>
                         <th>Description</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <td data-label="Column Name">job_id</td>
+                        <td data-label="Column">job_id</td>
                         <td data-label="Description">Unique identifier for the job.</td>
                     </tr>
                     <tr>
-                        <td data-label="Column Name">job_name</td>
+                        <td data-label="Column">job_name</td>
                         <td data-label="Description">The name of the job.</td>
                     </tr>
                     <tr>
-                        <td data-label="Column Name">execution_date</td>
+                        <td data-label="Column">execution_date</td>
                         <td data-label="Description">Timestamp when the job execution started.</td>
                     </tr>
                     <tr>
-                        <td data-label="Column Name">avg_duration</td>
+                        <td data-label="Column">avg_duration</td>
                         <td data-label="Description">Average execution duration (in seconds) based on historical data.</td>
                     </tr>
                     <tr>
-                        <td data-label="Column Name">max_duration</td>
+                        <td data-label="Column">max_duration</td>
                         <td data-label="Description">Threshold duration (in seconds) for detecting long-running jobs.</td>
                     </tr>
                     <tr>
-                        <td data-label="Column Name">current_duration</td>
+                        <td data-label="Column">current_duration</td>
                         <td data-label="Description">Current execution duration (in seconds).</td>
                     </tr>
                 </tbody>
@@ -351,21 +431,21 @@
                 <table class="description-table">
                     <thead>
                         <tr>
-                            <th>Column Name</th>
+                            <th>Column</th>
                             <th>Description</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td data-label="Column Name">job_name</td>
+                            <td data-label="Column">job_name</td>
                             <td data-label="Description">The name of the SQL Server Agent job.</td>
                         </tr>
                         <tr>
-                            <td data-label="Column Name">description</td>
+                            <td data-label="Column">description</td>
                             <td data-label="Description">A description of the job.</td>
                         </tr>
                         <tr>
-                            <td data-label="Column Name">start_execution_date</td>
+                            <td data-label="Column">start_execution_date</td>
                             <td data-label="Description">The date and time the job started execution.</td>
                         </tr>
                     </tbody>
@@ -379,17 +459,17 @@
                 <table class="description-table">
                     <thead>
                         <tr>
-                            <th>Column Name</th>
+                            <th>Column</th>
                             <th>Description</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td data-label="Column Name">job_name</td>
+                            <td data-label="Column">job_name</td>
                             <td data-label="Description">The name of the SQL Server Agent job.</td>
                         </tr>
                         <tr>
-                            <td data-label="Column Name">job_owner</td>
+                            <td data-label="Column">job_owner</td>
                             <td data-label="Description">The name of the user who owns the job.</td>
                         </tr>
                     </tbody>
@@ -403,33 +483,33 @@
                 <table class="description-table">
                     <thead>
                         <tr>
-                            <th>Column Name</th>
+                            <th>Column</th>
                             <th>Description</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td data-label="Column Name">job_name</td>
+                            <td data-label="Column">job_name</td>
                             <td data-label="Description">The name of the SQL Server Agent job.</td>
                         </tr>
                         <tr>
-                            <td data-label="Column Name">step_name</td>
+                            <td data-label="Column">step_name</td>
                             <td data-label="Description">The name of the specific step in the job.</td>
                         </tr>
                         <tr>
-                            <td data-label="Column Name">sql_severity</td>
+                            <td data-label="Column">sql_severity</td>
                             <td data-label="Description">The severity level of the SQL error, if any.</td>
                         </tr>
                         <tr>
-                            <td data-label="Column Name">message</td>
+                            <td data-label="Column">message</td>
                             <td data-label="Description">The error message associated with the job or step failure.</td>
                         </tr>
                         <tr>
-                            <td data-label="Column Name">run_date</td>
+                            <td data-label="Column">run_date</td>
                             <td data-label="Description">The date the job was run.</td>
                         </tr>
                         <tr>
-                            <td data-label="Column Name">run_time</td>
+                            <td data-label="Column">run_time</td>
                             <td data-label="Description">The time the job was run.</td>
                         </tr>
                     </tbody>
@@ -443,33 +523,33 @@
                 <table class="description-table">
                     <thead>
                         <tr>
-                            <th>Column Name</th>
+                            <th>Column</th>
                             <th>Description</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td data-label="Column Name">job_name</td>
+                            <td data-label="Column">job_name</td>
                             <td data-label="Description">The name of the SQL Server Agent job.</td>
                         </tr>
                         <tr>
-                            <td data-label="Column Name">step_name</td>
+                            <td data-label="Column">step_name</td>
                             <td data-label="Description">The name of the specific step in the job.</td>
                         </tr>
                         <tr>
-                            <td data-label="Column Name">sql_severity</td>
+                            <td data-label="Column">sql_severity</td>
                             <td data-label="Description">The severity level of the SQL error, if any.</td>
                         </tr>
                         <tr>
-                            <td data-label="Column Name">message</td>
+                            <td data-label="Column">message</td>
                             <td data-label="Description">The error message associated with the job or step.</td>
                         </tr>
                         <tr>
-                            <td data-label="Column Name">run_date</td>
+                            <td data-label="Column">run_date</td>
                             <td data-label="Description">The date the job was run.</td>
                         </tr>
                         <tr>
-                            <td data-label="Column Name">run_time</td>
+                            <td data-label="Column">run_time</td>
                             <td data-label="Description">The time the job was run.</td>
                         </tr>
                     </tbody>
@@ -506,53 +586,53 @@
                 <table class="description-table">
                     <thead>
                         <tr>
-                            <th>Column Name</th>
+                            <th>Column</th>
                             <th>Description</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td data-label="Column Name">group_handle</td>
+                            <td data-label="Column">group_handle</td>
                             <td data-label="Description">The unique identifier for the missing index group.</td>
                         </tr>
                         <tr>
-                            <td data-label="Column Name">index_advantage</td>
+                            <td data-label="Column">index_advantage</td>
                             <td data-label="Description">A calculated metric that estimates the advantage of creating the missing index.</td>
                         </tr>
                         <tr>
-                            <td data-label="Column Name">avg_total_user_cost</td>
+                            <td data-label="Column">avg_total_user_cost</td>
                             <td data-label="Description">The average cost of queries that would benefit from the missing index.</td>
                         </tr>
                         <tr>
-                            <td data-label="Column Name">avg_user_impact</td>
+                            <td data-label="Column">avg_user_impact</td>
                             <td data-label="Description">The estimated percentage improvement in query performance if the missing index is created.</td>
                         </tr>
                         <tr>
-                            <td data-label="Column Name">user_seeks</td>
+                            <td data-label="Column">user_seeks</td>
                             <td data-label="Description">The number of times queries attempted to use an index for seek operations but found it missing.</td>
                         </tr>
                         <tr>
-                            <td data-label="Column Name">user_scans</td>
+                            <td data-label="Column">user_scans</td>
                             <td data-label="Description">The number of times queries attempted to use an index for scan operations but found it missing.</td>
                         </tr>
                         <tr>
-                            <td data-label="Column Name">database_name</td>
+                            <td data-label="Column">database_name</td>
                             <td data-label="Description">The name of the database where the missing index was identified.</td>
                         </tr>
                         <tr>
-                            <td data-label="Column Name">table_name</td>
+                            <td data-label="Column">table_name</td>
                             <td data-label="Description">The name of the table where the missing index is suggested.</td>
                         </tr>
                         <tr>
-                            <td data-label="Column Name">equality_columns</td>
+                            <td data-label="Column">equality_columns</td>
                             <td data-label="Description">The columns used in equality comparisons in the queries benefiting from the index.</td>
                         </tr>
                         <tr>
-                            <td data-label="Column Name">inequality_columns</td>
+                            <td data-label="Column">inequality_columns</td>
                             <td data-label="Description">The columns used in inequality comparisons in the queries benefiting from the index.</td>
                         </tr>
                         <tr>
-                            <td data-label="Column Name">included_columns</td>
+                            <td data-label="Column">included_columns</td>
                             <td data-label="Description">The columns that should be included in the index to cover queries effectively.</td>
                         </tr>
                     </tbody>
@@ -615,46 +695,142 @@
                 <table class="description-table">
                     <thead>
                         <tr>
-                            <th>Column Name</th>
+                            <th>Column</th>
                             <th>Description</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td data-label="Column Name">database_name</td>
+                            <td data-label="Column">database_name</td>
                             <td data-label="Description">The name of the database containing the index.</td>
                         </tr>
                         <tr>
-                            <td data-label="Column Name">object_name</td>
+                            <td data-label="Column">object_name</td>
                             <td data-label="Description">The name of the table or view containing the index.</td>
                         </tr>
                         <tr>
-                            <td data-label="Column Name">index_name</td>
+                            <td data-label="Column">index_name</td>
                             <td data-label="Description">The name of the index being analyzed.</td>
                         </tr>
                         <tr>
-                            <td data-label="Column Name">schema_name</td>
+                            <td data-label="Column">schema_name</td>
                             <td data-label="Description">The schema of the table or view containing the index.</td>
                         </tr>
                         <tr>
-                            <td data-label="Column Name">avg_fragmentation_percent</td>
+                            <td data-label="Column">avg_fragmentation_percent</td>
                             <td data-label="Description">The average fragmentation percentage of the index.</td>
                         </tr>
                         <tr>
-                            <td data-label="Column Name">index_type_desc</td>
+                            <td data-label="Column">index_type_desc</td>
                             <td data-label="Description">The type of index (e.g., CLUSTERED, NONCLUSTERED).</td>
                         </tr>
                         <tr>
-                            <td data-label="Column Name">allocation_unit_type</td>
+                            <td data-label="Column">allocation_unit_type</td>
                             <td data-label="Description">The type of allocation unit (e.g., IN_ROW_DATA, LOB_DATA).</td>
                         </tr>
                         <tr>
-                            <td data-label="Column Name">has_large_data_type</td>
+                            <td data-label="Column">has_large_data_type</td>
                             <td data-label="Description">Indicates whether the table contains large data types (e.g., LOB, XML, or MAX types).</td>
                         </tr>
                         <tr>
-                            <td data-label="Column Name">table_size</td>
+                            <td data-label="Column">table_size</td>
                             <td data-label="Description">The size of the table in pages.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    
+    <div id="sp_pfmn_get_long_running_queries">
+        <!-- Procedure Description -->
+        <div class="description-text">
+            <h2 class="codehd">sp_pfmn_get_long_running_queries</h2>
+            <br>
+            This stored procedure identifies long-running queries across all databases in an SQL Server instance by leveraging Query Store data. It allows filtering by query duration, time range, and the inclusion of unnamed objects.
+        </div>
+    
+        <!-- Purpose Section -->
+        <div class="description-text">
+            <h3 class="table-header">Purpose</h3>
+            <p>This procedure provides insights into long-running queries for:</p>
+            <ul>
+                <li><strong>Performance Tuning:</strong>
+                    <ul>
+                        <li>Identify slow queries to prioritize optimization efforts.</li>
+                    </ul>
+                </li>
+                <li><strong>Resource Monitoring:</strong>
+                    <ul>
+                        <li>Analyze queries consuming significant execution time across multiple databases.</li>
+                    </ul>
+                </li>
+                <li><strong>Database-Wide Analysis:</strong>
+                    <ul>
+                        <li>Collect query data from all accessible databases in a single execution.</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    
+        <!-- Input Parameters -->
+        <div class="description-text">
+            <h3 class="table-header">Input Parameters</h3>
+            <br />
+            <p><code>@days_back</code> - Filters queries executed within the specified number of days back from the current date. <em>(Default: 5)</em></p>
+            <br />
+            <p><code>@min_duration_ms</code> - Filters queries with a maximum execution duration (in milliseconds) greater than this value. <em>(Default: 10,000)</em></p>
+            <br />
+            <p><code>@include_unnamed_objects</code> - If set to <code>1</code>, includes queries from unnamed objects (e.g., ad hoc queries). If <code>0</code>, excludes unnamed objects. <em>(Default: 1)</em></p>
+        </div>
+    
+        <!-- Output Columns -->
+        <div class="description-text">
+            <h3 class="table-header">Output Columns</h3>
+            <div class="description-table-container">
+                <table class="description-table">
+                    <thead>
+                        <tr>
+                            <th>Column</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td data-label="Column">db</td>
+                            <td data-label="Description">The name of the database where the query was executed.</td>
+                        </tr>
+                        <tr>
+                            <td data-label="Column">extype</td>
+                            <td data-label="Description">The type of execution (e.g., stored procedure, ad hoc query).</td>
+                        </tr>
+                        <tr>
+                            <td data-label="Column">query_id</td>
+                            <td data-label="Description">The unique identifier for the query within the Query Store.</td>
+                        </tr>
+                        <tr>
+                            <td data-label="Column">object_id</td>
+                            <td data-label="Description">The object ID of the query (e.g., stored procedure ID).</td>
+                        </tr>
+                        <tr>
+                            <td data-label="Column">max_duration_ms</td>
+                            <td data-label="Description">The maximum duration (in milliseconds) of the query execution.</td>
+                        </tr>
+                        <tr>
+                            <td data-label="Column">set_options</td>
+                            <td data-label="Description">The SET options in effect when the query was executed.</td>
+                        </tr>
+                        <tr>
+                            <td data-label="Column">name</td>
+                            <td data-label="Description">The name of the object containing the query (e.g., stored procedure name).</td>
+                        </tr>
+                        <tr>
+                            <td data-label="Column">total_duration_ms</td>
+                            <td data-label="Description">The total execution time (in milliseconds) across all executions of the query.</td>
+                        </tr>
+                        <tr>
+                            <td data-label="Column">query_sql_text</td>
+                            <td data-label="Description">The SQL text of the query.</td>
                         </tr>
                     </tbody>
                 </table>
@@ -664,6 +840,101 @@
     
 
 
+
+
+
+
+
+
+    <div id="sp_long_proc">
+        <!-- Procedure Description -->
+        <div class="description-text">
+            <h2 class="codehd">sp_long_proc</h2>
+            <br>
+            This stored procedure retrieves and analyzes details of long-running stored procedure calls or queries using Extended Events (XEs). It provides insights into query performance by filtering based on duration, database name, client hostname, or SQL statement patterns.
+        </div>
+    
+        <!-- Purpose Section -->
+        <div class="description-text">
+            <h3 class="table-header">Purpose</h3>
+            <p>This procedure helps database administrators:</p>
+            <ul>
+                <li><strong>Identify Long-Running Queries:</strong>
+                    <ul>
+                        <li>Locate stored procedures or queries with high execution times.</li>
+                    </ul>
+                </li>
+                <li><strong>Monitor Specific Databases:</strong>
+                    <ul>
+                        <li>Focus analysis on queries executed in a specific database.</li>
+                    </ul>
+                </li>
+                <li><strong>Analyze Host Activity:</strong>
+                    <ul>
+                        <li>Identify workload patterns by client hostname.</li>
+                    </ul>
+                </li>
+                <li><strong>Filter by SQL Patterns:</strong>
+                    <ul>
+                        <li>Search for specific SQL statements or patterns for troubleshooting.</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    
+        <!-- Input Parameters -->
+        <div class="description-text">
+            <h3 class="table-header">Input Parameters</h3>
+            <br />
+            <p><code>@xeSession</code> - The name of the Extended Events session to retrieve data from. Default: <code>'Proc_Calls'</code>.</p>
+            <br />
+            <p><code>@dbName</code> - Filters results to include only events from a specific database. Default: <code>NULL</code> (no filtering).</p>
+            <br />
+            <p><code>@duration</code> - Filters results to include only events with a duration greater than this value (in microseconds). Default: <code>NULL</code> (no filtering).</p>
+            <br />
+            <p><code>@hostname</code> - Filters results to include only events generated by a specific client host. Default: <code>NULL</code> (no filtering).</p>
+            <br />
+            <p><code>@statement</code> - Filters results to include only events containing a specific SQL statement or pattern. Default: <code>NULL</code> (no filtering).</p>
+        </div>
+    
+        <!-- Output Columns -->
+        <div class="description-text">
+            <h3 class="table-header">Output Columns</h3>
+            <div class="description-table-container">
+                <table class="description-table">
+                    <thead>
+                        <tr>
+                            <th>Column</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td data-label="Column">timestamp</td>
+                            <td data-label="Description">The time the query was executed.</td>
+                        </tr>
+                        <tr>
+                            <td data-label="Column">database_name</td>
+                            <td data-label="Description">The name of the database where the query was executed.</td>
+                        </tr>
+                        <tr>
+                            <td data-label="Column">duration</td>
+                            <td data-label="Description">The duration of the query in microseconds.</td>
+                        </tr>
+                        <tr>
+                            <td data-label="Column">statement</td>
+                            <td data-label="Description">The SQL statement executed.</td>
+                        </tr>
+                        <tr>
+                            <td data-label="Column">hostname</td>
+                            <td data-label="Description">The client machine that executed the query.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    
 
 </div>
 
