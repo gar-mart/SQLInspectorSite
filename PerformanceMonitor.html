@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mobile Friendly Page</title>
+    <title>SQL Inspector</title>
     <link rel="stylesheet" href="style.css">
 
 
@@ -11,7 +11,7 @@
 </head>
 <body>
     <header>
-        <h1>Welcome to My Mobile Friendly Page</h1>
+        <h1>Welcome to SQL Inspector</h1>
     </header>
 
     <nav>
@@ -21,22 +21,25 @@
     </nav>
 
     <div class="sidebar">
-        <a href="#sp_pfmn_get_database_backup_info">sp_pfmn_get_database_backup_info</a>
-        <a href="#sp_pfmn_get_active_transactions">sp_pfmn_get_active_transactions</a>
+        <a href="#sp_backup_info">sp_backup_info</a>
+        <a href="#sp_active_tran">sp_active_tran</a>
         <a href="#sp_current_locks">sp_current_locks</a>
     </div>
     
 
 <div class="content">
 
-        <div id="sp_pfmn_get_database_backup_info">
+    <div id="sp_backup_info">
    
     <div class="description-text">
-        <h2 class="codehd">sp_pfmn_get_database_backup_info</h2>
+        <h2 class="codehd">sp_backup_info</h2>
         <br>
-        The stored procedure <code>sp_pfmn_get_database_backup_info</code> retrieves and displays detailed backup information for each database on the SQL Server instance. This includes recovery model, data size, log size, and backup details for both full and log backups.
+        Retrieves and displays detailed backup information for each database on the SQL Server instance. 
     </div>
-    
+
+    <div class="description-text">
+
+    <h3 class="table-header">Output</h3>
     <div class="description-table-container">
         <table class="description-table">
             <thead>
@@ -83,55 +86,34 @@
                     <td data-label="Description">The date and time of the last transaction log backup for the database.</td>
                 </tr>
                 <tr>
-                    <td data-label="Column">log_size</td>
+                    <td data-label="Column">last_log_backup_size</td>
                     <td data-label="Description">The size of the last transaction log backup for the database, measured in bytes.</td>
                 </tr>
             </tbody>
         </table>
     </div>
         </div>
+    </div>
     
-        <div id="sp_table_sizes">
+    <div id="sp_table_sizes">
             <!-- Procedure Description -->
             <div class="description-text">
                 <h2 class="codehd">sp_table_sizes</h2>
                 <br>
-                This stored procedure calculates and returns detailed information about table sizes in the database. It provides insights into row counts, total allocated space, used space, and unused space for tables, optionally filtered by schema.
+                Displays detailed information about table sizes in the database.
             </div>
         
-            <!-- Purpose Section -->
-            <div class="description-text">
-                <h3 class="table-header">Purpose</h3>
-                <p>This procedure helps database administrators:</p>
-                <ul>
-                    <li><strong>Analyze Table Sizes:</strong>
-                        <ul>
-                            <li>View the size of tables in terms of rows, total allocated space, used space, and unused space.</li>
-                        </ul>
-                    </li>
-                    <li><strong>Schema-Specific Analysis:</strong>
-                        <ul>
-                            <li>Limit the analysis to tables within a specified schema.</li>
-                        </ul>
-                    </li>
-                    <li><strong>Monitor Unused Space:</strong>
-                        <ul>
-                            <li>Identify tables with significant unused space for optimization.</li>
-                        </ul>
-                    </li>
-                </ul>
-            </div>
         
             <!-- Input Parameter -->
             <div class="description-text">
-                <h3 class="table-header">Input Parameter</h3>
+                <h3 class="table-header">Parameter</h3>
                 <br />
-                <p><code>@schema</code> - Specifies the schema for filtering the tables. If <code>NULL</code>, analyzes all schemas.</p>
+                <p><code>@schema</code> - Specifies the schema for filtering the tables. If <code>NULL</code>, returns results for all schemas.</p>
             </div>
         
             <!-- Output Columns -->
             <div class="description-text">
-                <h3 class="table-header">Output Columns</h3>
+                <h3 class="table-header">Output</h3>
                 <div class="description-table-container">
                     <table class="description-table">
                         <thead>
@@ -169,17 +151,21 @@
                     </table>
                 </div>
             </div>
-        </div>
+    </div>
         
-    <div id="sp_pfmn_get_active_transactions">
+    <div id="sp_active_tran">
 
     <div class="description-text">
-        <h2 class="codehd">sp_pfmn_get_active_transactions</h2>
+        <h2 class="codehd">sp_active_tran</h2>
         <br>
-        This stored procedure provides details about active transactions within the SQL Server instance, offering insights into transaction metadata, associated sessions, and their recent execution plans.
+        Provides details about active transactions within the SQL Server instance, offering insights into transaction metadata, associated sessions, and their recent execution plans.
     </div>
     
+    <div class="description-text">
+        <h3 class="table-header">Output</h3>
+
     <div class="description-table-container">
+        
         <table class="description-table">
             <thead>
                 <tr>
@@ -224,21 +210,18 @@
         </table>
     </div>
     </div>
-        
-    
+    </div>
+         
     <div id="sp_current_locks">
 
     <div class="description-text">
         <h2 class="codehd">sp_current_locks</h2>
         <br>
-        This stored procedure retrieves information about the current locks held by sessions on resources within the database where it is executed. It provides insights into locking activity, which is crucial for understanding and resolving performance issues caused by contention.
-        This stored procedure retrieves information about the current locks held by sessions on resources within the database where it is executed. It provides insights into locking activity, which is crucial for understanding and resolving performance issues caused by contention.
-        This stored procedure retrieves information about the current locks held by sessions on resources within the database where it is executed. It provides insights into locking activity, which is crucial for understanding and resolving performance issues caused by contention.
-        This stored procedure retrieves information about the current locks held by sessions on resources within the database where it is executed. It provides insights into locking activity, which is crucial for understanding and resolving performance issues caused by contention.
-        This stored procedure retrieves information about the current locks held by sessions on resources within the database where it is executed. It provides insights into locking activity, which is crucial for understanding and resolving performance issues caused by contention.
-        This stored procedure retrieves information about the current locks held by sessions on resources within the database where it is executed. It provides insights into locking activity, which is crucial for understanding and resolving performance issues caused by contention.
+        Provides information about the current locks held by sessions on various database resources.
     </div>
-    
+    <div class="description-text">
+        <h3 class="table-header">Output</h3>
+
     <div class="description-table-container">
         <table class="description-table">
             <thead>
@@ -288,30 +271,40 @@
         </table>
     </div>
     
-    </div>
-    
-    
-    
-    <div id="sp_pfmn_detect_long_running_jobs">
+    </div>  
+</div>  
+      
+
+
+
+    <div id="sp_long_jobs">
+        <!-- Procedure Description -->
         <div class="description-text">
-            <h2 class="codehd">sp_pfmn_detect_long_running_jobs</h2>
+            <h2 class="codehd">sp_long_jobs</h2>
             <br>
-            This stored procedure identifies long-running SQL Server Agent jobs by analyzing the execution time of currently running jobs and comparing it against historical averages or predefined thresholds. It can optionally send email notifications when long-running jobs are detected.
-            <br />
-            <h3 class="table-header">Parameters</h3>
-            <br />
-           <p> <code>@database_name</code> - Name of the database </p> <br />
-           <p> <code>@min_frag</code> - Minimum fragmentation value </p> <br />
-           <p> <code>@min_table_size</code> - Minimum table size in pages </p> <br />
-           <p> <code>@print_command</code> - Flag to print command, print if 1, not otherwise </p> <br />
-           <p> <code>@execute_command</code> - Flag to execute command, if 0 it won't execute, just print the command if specified </p>
-        
+            Detects long running SQL Server Agent jobs by comparing current execution duration against thresholds derived from historical averages or default limits. If specified sends email notification for detected jobs.
         </div>
     
+     
+    
+        <!-- Input Parameters -->
+        <div class="description-text">
+            <h3 class="table-header">Input Parameters</h3>
+            <br />
+            <p><code>@deviation_times</code> - Multiplier for historical average duration to define a threshold. Default: <code>3</code>.</p>
+            <br />
+            <p><code>@default_max_duration_minutes</code> - Fallback duration threshold (in minutes). Default: <code>15</code>.</p>
+            <br />
+            <p><code>@from_address</code> - Email address used for sending notifications. Optional.</p>
+            <br />
+            <p><code>@recipients</code> - Email addresses of recipients (comma-separated). Optional.</p>
+        </div>
+    
+        <!-- Output Tables -->
         <div class="description-text">
             <h3 class="table-header">Output Tables</h3>
             <p>
-                The procedure uses internal temporary tables to process data. Below are the primary temporary tables and their purposes:
+                The procedure creates the following temporary tables to store intermediate and final results:
             </p>
             
             <!-- Table 1: @RunningJobs -->
@@ -321,107 +314,85 @@
                 <table class="description-table">
                     <thead>
                         <tr>
-                            <th>Column</th>
+                            <th>Column Name</th>
                             <th>Description</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td data-label="Column">job_id</td>
-                            <td data-label="Description">Unique identifier for the job.</td>
+                            <td>job_id</td>
+                            <td>Unique identifier for the job.</td>
                         </tr>
                         <tr>
-                            <td data-label="Column">job_state</td>
-                            <td data-label="Description">State of the job (e.g., running).</td>
+                            <td>job_state</td>
+                            <td>State of the job (e.g., running).</td>
                         </tr>
                     </tbody>
                 </table>
             </div>
-        
+            
             <!-- Table 2: @DetectedJobs -->
             <h4>2. <code>@DetectedJobs</code></h4>
             <p>Stores details of jobs identified as long-running.</p>
             <div class="description-table-container">
-            <table class="description-table">
-                <thead>
-                    <tr>
-                        <th>Column</th>
-                        <th>Description</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td data-label="Column">job_id</td>
-                        <td data-label="Description">Unique identifier for the job.</td>
-                    </tr>
-                    <tr>
-                        <td data-label="Column">job_name</td>
-                        <td data-label="Description">The name of the job.</td>
-                    </tr>
-                    <tr>
-                        <td data-label="Column">execution_date</td>
-                        <td data-label="Description">Timestamp when the job execution started.</td>
-                    </tr>
-                    <tr>
-                        <td data-label="Column">avg_duration</td>
-                        <td data-label="Description">Average execution duration (in seconds) based on historical data.</td>
-                    </tr>
-                    <tr>
-                        <td data-label="Column">max_duration</td>
-                        <td data-label="Description">Threshold duration (in seconds) for detecting long-running jobs.</td>
-                    </tr>
-                    <tr>
-                        <td data-label="Column">current_duration</td>
-                        <td data-label="Description">Current execution duration (in seconds).</td>
-                    </tr>
-                </tbody>
-            </table>
+                <table class="description-table">
+                    <thead>
+                        <tr>
+                            <th>Column Name</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>job_name</td>
+                            <td>The name of the SQL Server Agent job.</td>
+                        </tr>
+                        <tr>
+                            <td>execution_date</td>
+                            <td>The start date and time of the job execution.</td>
+                        </tr>
+                        <tr>
+                            <td>avg_duration</td>
+                            <td>Historical average execution duration (in seconds).</td>
+                        </tr>
+                        <tr>
+                            <td>max_duration</td>
+                            <td>Threshold duration (in seconds) for detecting long-running jobs.</td>
+                        </tr>
+                        <tr>
+                            <td>current_duration</td>
+                            <td>Current execution duration (in seconds).</td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         </div>
-        
     </div>
-
-    <div id="sp_pfmn_get_agent_job_info">
+    
+    <div id="sp_job_info">
         <!-- Procedure Description -->
         <div class="description-text">
-            <h2 class="codehd">sp_pfmn_get_agent_job_info</h2>
+            <h2 class="codehd">sp_job_info</h2>
             <br>
-            This stored procedure retrieves detailed information about SQL Server Agent jobs, offering insights into job execution history, job owners, run statuses, and specific steps.
-            <br />
+            Retrieves detailed information about SQL Server Agent jobs. Identifies jobs that failed based on historical data. Drills down into specific job steps to troubleshoot issues.
+        </div>
     
             <!-- Input Parameters -->
+        <div class="description-text">
+
             <h3 class="table-header">Parameters</h3>
             <br />
-            <p><code>@execution_start_date</code> - Filters jobs by execution start date. If NULL, no filter is applied.</p> <br />
-            <p><code>@job_owner</code> - Filters jobs by the owner’s name. If NULL, no filter is applied.</p> <br />
-            <p><code>@run_status</code> - Filters jobs by their execution status. Example values: 0 (Failed), 1 (Succeeded). If NULL, no filter is applied.</p> <br />
-            <p><code>@step_name</code> - Filters jobs by the name of a specific step. If NULL, no filter is applied.</p>
+            <p><code>@start_date</code> - Filters jobs by execution start date. If <code>NULL</code>, no filter is applied.</p> <br />
+            <p><code>@job_owner</code> - Filters jobs by the owner’s name. If <code>NULL</code>, no filter is applied.</p> <br />
+            <p><code>@run_status</code> - Filters jobs by their execution status. Example values: <code>0</code> (Failed), <code>1</code> (Succeeded). If <code>NULL</code>, no filter is applied.</p> <br />
+            <p><code>@step_name</code> - Filters jobs by the name of a specific step. If <code>NULL</code>, no filter is applied.</p>
         </div>
     
-        <!-- Key Insights Section -->
-        <div class="description-text">
-            <h3 class="table-header">Key Insights</h3>
-            <p><strong>Job Execution Analysis:</strong></p>
-            <ul>
-                <li>Retrieve jobs based on start date and execution history.</li>
-            </ul>
-            <p><strong>Job Ownership Insights:</strong></p>
-            <ul>
-                <li>Display job owners to manage access and responsibilities.</li>
-            </ul>
-            <p><strong>Failure Detection:</strong></p>
-            <ul>
-                <li>Identify jobs that failed based on historical data.</li>
-            </ul>
-            <p><strong>Step-Level Analysis:</strong></p>
-            <ul>
-                <li>Drill down into specific job steps to troubleshoot issues.</li>
-            </ul>
-        </div>
+       
     
         <!-- Output Tables -->
         <div class="description-text">
-            <h3 class="table-header">Output Sections</h3>
+            <h3 class="table-header">Output Sections AAAAAAAAAAAAAAAAAAAAAAAAAAAAA</h3>
             <p>The procedure provides the following output sections to analyze SQL Server Agent jobs:</p>
         
             <!-- Section 1 -->
@@ -561,13 +532,89 @@
 
 
     </div>
-    
-    <div id="sp_pfmn_get_costly_missing_indexes">
+    <div id="sp_index_usage">
         <!-- Procedure Description -->
         <div class="description-text">
-            <h2 class="codehd">sp_pfmn_get_costly_missing_indexes</h2>
+            <h2 class="codehd">sp_index_usage</h2>
             <br>
-            This stored procedure identifies and lists costly missing indexes in one or more databases. Missing indexes are ranked by their potential performance benefit, calculated based on the user impact and query cost.
+            Retrieves index usage statistics, showing which indexes are frequently used, as opposed to unused or rarely used ones.
+        </div>
+    
+        <!-- Purpose Section -->
+   
+    
+        <!-- Input Parameter -->
+        <div class="description-text">
+            <h3 class="table-header">Parameter</h3>
+            <br />
+            <p><code>@database_name</code> - The name of the database to display index usage information for, if <code>NULL</code>, retrieves indexes for all databases.</p>
+        </div>
+    
+        <!-- Output Columns -->
+        <div class="description-text">
+            <h3 class="table-header">Output</h3>
+            <div class="description-table-container">
+                <table class="description-table">
+                    <thead>
+                        <tr>
+                            <th>Column Name</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td data-label="Column Name">table_name</td>
+                            <td data-label="Description">The name of the table where the index resides.</td>
+                        </tr>
+                        <tr>
+                            <td data-label="Column Name">index_name</td>
+                            <td data-label="Description">The name of the index being analyzed.</td>
+                        </tr>
+                        <tr>
+                            <td data-label="Column Name">user_seeks</td>
+                            <td data-label="Description">Number of seek operations performed on the index.</td>
+                        </tr>
+                        <tr>
+                            <td data-label="Column Name">user_scans</td>
+                            <td data-label="Description">Number of scan operations performed on the index.</td>
+                        </tr>
+                        <tr>
+                            <td data-label="Column Name">user_lookups</td>
+                            <td data-label="Description">Number of lookup operations performed on the index.</td>
+                        </tr>
+                        <tr>
+                            <td data-label="Column Name">user_updates</td>
+                            <td data-label="Description">Number of updates to the index.</td>
+                        </tr>
+                        <tr>
+                            <td data-label="Column Name">last_user_seek</td>
+                            <td data-label="Description">Timestamp of the last seek operation.</td>
+                        </tr>
+                        <tr>
+                            <td data-label="Column Name">last_user_scan</td>
+                            <td data-label="Description">Timestamp of the last scan operation.</td>
+                        </tr>
+                        <tr>
+                            <td data-label="Column Name">last_user_lookup</td>
+                            <td data-label="Description">Timestamp of the last lookup operation.</td>
+                        </tr>
+                        <tr>
+                            <td data-label="Column Name">last_user_update</td>
+                            <td data-label="Description">Timestamp of the last update operation.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    
+
+    <div id="sp_missing_indexes">
+        <!-- Procedure Description -->
+        <div class="description-text">
+            <h2 class="codehd">sp_missing_indexes</h2>
+            <br>
+            Returns costly missing indexes in a given database or all databases. Missing indexes are ranked by their potential performance benefit, calculated based on the user impact and query cost.
         </div>
     
         <!-- Input Parameters -->
@@ -642,10 +689,10 @@
     </div>
     
 
-    <div id="sp_pfmn_get_index_fragmentation">
+    <div id="sp_index_frag">
         <!-- Procedure Description -->
         <div class="description-text">
-            <h2 class="codehd">sp_pfmn_get_index_fragmentation</h2>
+            <h2 class="codehd">sp_index_frag</h2>
             <br>
             This stored procedure analyzes index fragmentation across one or more databases, providing insights for maintenance actions like rebuilding or reorganizing indexes to improve performance.
         </div>
@@ -741,47 +788,28 @@
             </div>
         </div>
     </div>
+
+
     
-    <div id="sp_pfmn_get_long_running_queries">
+    <div id="sp_long_queries">
         <!-- Procedure Description -->
         <div class="description-text">
-            <h2 class="codehd">sp_pfmn_get_long_running_queries</h2>
+            <h2 class="codehd">sp_long_queries</h2>
             <br>
-            This stored procedure identifies long-running queries across all databases in an SQL Server instance by leveraging Query Store data. It allows filtering by query duration, time range, and the inclusion of unnamed objects.
+            Identifies long-running queries across all databases in a SQL Server instance using Query Store data. 
         </div>
     
-        <!-- Purpose Section -->
-        <div class="description-text">
-            <h3 class="table-header">Purpose</h3>
-            <p>This procedure provides insights into long-running queries for:</p>
-            <ul>
-                <li><strong>Performance Tuning:</strong>
-                    <ul>
-                        <li>Identify slow queries to prioritize optimization efforts.</li>
-                    </ul>
-                </li>
-                <li><strong>Resource Monitoring:</strong>
-                    <ul>
-                        <li>Analyze queries consuming significant execution time across multiple databases.</li>
-                    </ul>
-                </li>
-                <li><strong>Database-Wide Analysis:</strong>
-                    <ul>
-                        <li>Collect query data from all accessible databases in a single execution.</li>
-                    </ul>
-                </li>
-            </ul>
-        </div>
+   
     
         <!-- Input Parameters -->
         <div class="description-text">
-            <h3 class="table-header">Input Parameters</h3>
+            <h3 class="table-header">Parameters</h3>
             <br />
-            <p><code>@days_back</code> - Filters queries executed within the specified number of days back from the current date. <em>(Default: 5)</em></p>
+            <p><code>@days_back</code> - Filters queries executed within the specified number of days back from the current date. Default: 5</p>
             <br />
-            <p><code>@min_duration_ms</code> - Filters queries with a maximum execution duration (in milliseconds) greater than this value. <em>(Default: 10,000)</em></p>
+            <p><code>@min_duration_ms</code> - Filters queries with a maximum execution duration (in milliseconds) greater than this value. Default: 10,000</p>
             <br />
-            <p><code>@include_unnamed_objects</code> - If set to <code>1</code>, includes queries from unnamed objects (e.g., ad hoc queries). If <code>0</code>, excludes unnamed objects. <em>(Default: 1)</em></p>
+            <p><code>@include_unnamed_objects</code> - If set to <code>1</code>, includes queries from unnamed objects (e.g., ad hoc queries). If <code>0</code>, excludes unnamed objects. Default: 1</p>
         </div>
     
         <!-- Output Columns -->
@@ -839,17 +867,10 @@
     </div>
     
 
-
-
-
-
-
-
-
-    <div id="sp_long_proc">
+    <div id="sp_long_proc_xe">
         <!-- Procedure Description -->
         <div class="description-text">
-            <h2 class="codehd">sp_long_proc</h2>
+            <h2 class="codehd">sp_long_proc_xe</h2>
             <br>
             This stored procedure retrieves and analyzes details of long-running stored procedure calls or queries using Extended Events (XEs). It provides insights into query performance by filtering based on duration, database name, client hostname, or SQL statement patterns.
         </div>
@@ -974,7 +995,7 @@
 
     
     <footer>
-        <p>&copy; 2024 My Website</p>
+        <p>&copy; 2025 SQL Inspector</p>
     </footer>
 </body>
 </html>
