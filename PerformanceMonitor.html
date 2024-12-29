@@ -10,21 +10,40 @@
 
 </head>
 <body>
-    <header>
-        <h1>Welcome to SQL Inspector</h1>
-    </header>
 
     <nav>
-        <a href="#home"> sp_long_running_queries ssssssHome</a>
-        <a href="#about">About</a>
-        <a href="#contact">Contact</a>
+        <!-- Left Empty Space -->
+        <div class="nav-left"></div>
+    
+        <!-- Center Links -->
+        <div class="nav-center">
+            <a href="#overview">Overview</a>
+            <a href="#github">Github</a>
+            <a href="#contact">Contact</a>
+        </div>
+    
+        <!-- Right Aligned Download Button -->
+        <div class="nav-download">
+            <a href="#" class="download-btn">Download</a>
+        </div>
     </nav>
+    
+    
 
     <div class="sidebar">
         <a href="#sp_backup_info">sp_backup_info</a>
+        <a href="#sp_table_sizes">sp_table_sizes</a>
         <a href="#sp_active_tran">sp_active_tran</a>
         <a href="#sp_current_locks">sp_current_locks</a>
+        <a href="#sp_long_jobs">sp_long_jobs</a>
+        <a href="#sp_job_info">sp_job_info</a>
+        <a href="#sp_index_usage">sp_index_usage</a>
+        <a href="#sp_missing_indexes">sp_missing_indexes</a>
+        <a href="#sp_index_frag">sp_index_frag</a>
+        <a href="#sp_long_queries">sp_long_queries</a>
+        <a href="#sp_long_proc_xe">sp_long_proc_xe</a>
     </div>
+    
     
 
 <div class="content">
@@ -302,14 +321,12 @@
     
         <!-- Output Tables -->
         <div class="description-text">
-            <h3 class="table-header">Output Tables</h3>
-            <p>
-                The procedure creates the following temporary tables to store intermediate and final results:
-            </p>
+            <h3 class="table-header">Output</h3>
+            <br />
             
             <!-- Table 1: @RunningJobs -->
-            <h4>1. <code>@RunningJobs</code></h4>
-            <p>Captures information about currently running SQL Server Agent jobs.</p>
+            <h4>1. Currrently Running Jobs</h4>
+            <br />
             <div class="description-table-container">
                 <table class="description-table">
                     <thead>
@@ -330,10 +347,11 @@
                     </tbody>
                 </table>
             </div>
+            <br />
             
             <!-- Table 2: @DetectedJobs -->
-            <h4>2. <code>@DetectedJobs</code></h4>
-            <p>Stores details of jobs identified as long-running.</p>
+            <h4>2. Detected Long Running Jobs </h4>
+            <br />
             <div class="description-table-container">
                 <table class="description-table">
                     <thead>
@@ -392,12 +410,12 @@
     
         <!-- Output Tables -->
         <div class="description-text">
-            <h3 class="table-header">Output Sections AAAAAAAAAAAAAAAAAAAAAAAAAAAAA</h3>
-            <p>The procedure provides the following output sections to analyze SQL Server Agent jobs:</p>
-        
+            <h3 class="table-header">Output</h3>
+            <br />
             <!-- Section 1 -->
-            <h4>1. <strong>Jobs Sorted by Execution Start Time</strong></h4>
-            <p>Provides details of jobs that started after a specific date.</p>
+            <h4>1. Jobs Sorted by Execution Start Time</h4>
+            <br />
+
             <div class="description-table-container">
                 <table class="description-table">
                     <thead>
@@ -422,10 +440,12 @@
                     </tbody>
                 </table>
             </div>
+            <br />
         
             <!-- Section 2 -->
-            <h4>2. <strong>Jobs with Their Owners</strong></h4>
-            <p>Displays the owners of SQL Server Agent jobs.</p>
+            <h4>2. Jobs with Their Owners</h4>
+            <br />
+
             <div class="description-table-container">
                 <table class="description-table">
                     <thead>
@@ -446,10 +466,12 @@
                     </tbody>
                 </table>
             </div>
+            <br />
         
             <!-- Section 3 -->
-            <h4><strong>Jobs That Failed Execution</strong></h4>
-            <p>Provides details of jobs that failed execution, including severity and messages.</p>
+            <h4>3. Jobs That Failed Execution</h4>
+            <br />
+
             <div class="description-table-container">
                 <table class="description-table">
                     <thead>
@@ -486,10 +508,12 @@
                     </tbody>
                 </table>
             </div>
+            <br />
         
             <!-- Section 4 -->
-            <h4>4. <strong>Jobs with Specific Step Name</strong></h4>
-            <p>Provides details of jobs containing a specific step name.</p>
+            <h4>4. Jobs with Specific Step Name </h4>
+            <br />
+            
             <div class="description-table-container">
                 <table class="description-table">
                     <thead>
@@ -532,6 +556,8 @@
 
 
     </div>
+
+
     <div id="sp_index_usage">
         <!-- Procedure Description -->
         <div class="description-text">
@@ -563,43 +589,43 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td data-label="Column Name">table_name</td>
+                            <td data-label="Column">table_name</td>
                             <td data-label="Description">The name of the table where the index resides.</td>
                         </tr>
                         <tr>
-                            <td data-label="Column Name">index_name</td>
+                            <td data-label="Column">index_name</td>
                             <td data-label="Description">The name of the index being analyzed.</td>
                         </tr>
                         <tr>
-                            <td data-label="Column Name">user_seeks</td>
+                            <td data-label="Column">user_seeks</td>
                             <td data-label="Description">Number of seek operations performed on the index.</td>
                         </tr>
                         <tr>
-                            <td data-label="Column Name">user_scans</td>
+                            <td data-label="Column">user_scans</td>
                             <td data-label="Description">Number of scan operations performed on the index.</td>
                         </tr>
                         <tr>
-                            <td data-label="Column Name">user_lookups</td>
+                            <td data-label="Column">user_lookups</td>
                             <td data-label="Description">Number of lookup operations performed on the index.</td>
                         </tr>
                         <tr>
-                            <td data-label="Column Name">user_updates</td>
+                            <td data-label="Column">user_updates</td>
                             <td data-label="Description">Number of updates to the index.</td>
                         </tr>
                         <tr>
-                            <td data-label="Column Name">last_user_seek</td>
+                            <td data-label="Column">last_user_seek</td>
                             <td data-label="Description">Timestamp of the last seek operation.</td>
                         </tr>
                         <tr>
-                            <td data-label="Column Name">last_user_scan</td>
+                            <td data-label="Column">last_user_scan</td>
                             <td data-label="Description">Timestamp of the last scan operation.</td>
                         </tr>
                         <tr>
-                            <td data-label="Column Name">last_user_lookup</td>
+                            <td data-label="Column">last_user_lookup</td>
                             <td data-label="Description">Timestamp of the last lookup operation.</td>
                         </tr>
                         <tr>
-                            <td data-label="Column Name">last_user_update</td>
+                            <td data-label="Column">last_user_update</td>
                             <td data-label="Description">Timestamp of the last update operation.</td>
                         </tr>
                     </tbody>
@@ -621,14 +647,14 @@
         <div class="description-text">
             <h3 class="table-header">Parameters</h3>
             <br />
-            <p><code>@dbName</code> - Specifies the name of a database to analyze. If <code>NULL</code>, returns missing indexes for all databases.</p>
+            <p><code>@database_name</code> - Specifies the name of a database to analyze. If <code>NULL</code>, returns missing indexes for all databases.</p>
             <br />
-            <p><code>@isCurrent</code> - If set to <code>1</code>, returns missing indexes for the current database only.</p>
+            <p><code>@is_current</code> - If set to <code>1</code>, returns missing indexes for the current database only.</p>
         </div>
     
         <!-- Output Columns -->
         <div class="description-text">
-            <h3 class="table-header">Output Columns</h3>
+            <h3 class="table-header">Output</h3>
             <div class="description-table-container">
                 <table class="description-table">
                     <thead>
@@ -694,35 +720,13 @@
         <div class="description-text">
             <h2 class="codehd">sp_index_frag</h2>
             <br>
-            This stored procedure analyzes index fragmentation across one or more databases, providing insights for maintenance actions like rebuilding or reorganizing indexes to improve performance.
+            Provides insights into index fragmentation across one or more databases. Highlights indexes with fragmentation above the specified threshold.
         </div>
-    
-        <!-- Purpose Section -->
-        <div class="description-text">
-            <h3 class="table-header">Purpose</h3>
-            <p>This procedure helps database administrators:</p>
-            <ul>
-                <li><strong>Identify Fragmentation:</strong>
-                    <ul>
-                        <li>Highlight indexes with fragmentation above the specified threshold.</li>
-                    </ul>
-                </li>
-                <li><strong>Focus on Large Tables:</strong>
-                    <ul>
-                        <li>Analyze indexes only for tables meeting the minimum size criteria.</li>
-                    </ul>
-                </li>
-                <li><strong>Optimize Index Maintenance:</strong>
-                    <ul>
-                        <li>Provide actionable insights for index maintenance to improve query performance.</li>
-                    </ul>
-                </li>
-            </ul>
-        </div>
+
     
         <!-- Input Parameters -->
         <div class="description-text">
-            <h3 class="table-header">Input Parameters</h3>
+            <h3 class="table-header">Parameters</h3>
             <br />
             <p><code>@database_name</code> - The name of the database to analyze. If <code>NULL</code>, analyzes all eligible databases.</p>
             <br />
@@ -730,9 +734,9 @@
             <br />
             <p><code>@min_table_size</code> - The minimum table size (in pages) to filter the results.</p>
             <br />
-            <p><code>@print_command</code> - If set to <code>1</code>, prints the dynamic SQL commands for debugging purposes.</p>
+            <p><code>@print_command</code> - If set to <code>1</code>, prints the dynamic SQL commands for debugging purposes. Default: 0</p>
             <br />
-            <p><code>@execute_command</code> - If set to <code>1</code>, executes the generated SQL commands to analyze fragmentation.</p>
+            <p><code>@execute_command</code> - If set to <code>1</code>, executes the generated SQL commands to analyze fragmentation. Default: 1</p>
         </div>
     
         <!-- Output Columns -->
@@ -809,7 +813,7 @@
             <br />
             <p><code>@min_duration_ms</code> - Filters queries with a maximum execution duration (in milliseconds) greater than this value. Default: 10,000</p>
             <br />
-            <p><code>@include_unnamed_objects</code> - If set to <code>1</code>, includes queries from unnamed objects (e.g., ad hoc queries). If <code>0</code>, excludes unnamed objects. Default: 1</p>
+            <p><code>@include_unnamed_objects</code> - If <code>1</code>, includes queries from unnamed objects (e.g., ad hoc queries). If <code>0</code>, excludes unnamed objects. Default: 1</p>
         </div>
     
         <!-- Output Columns -->
@@ -872,44 +876,17 @@
         <div class="description-text">
             <h2 class="codehd">sp_long_proc_xe</h2>
             <br>
-            This stored procedure retrieves and analyzes details of long-running stored procedure calls or queries using Extended Events (XEs). It provides insights into query performance by filtering based on duration, database name, client hostname, or SQL statement patterns.
-        </div>
+            Retrieves details of long-running stored procedure calls or queries captured by Extended Events. Provides insights into query performance by filtering based on duration, database name, client hostname, or SQL statement patterns.   </div>
     
-        <!-- Purpose Section -->
-        <div class="description-text">
-            <h3 class="table-header">Purpose</h3>
-            <p>This procedure helps database administrators:</p>
-            <ul>
-                <li><strong>Identify Long-Running Queries:</strong>
-                    <ul>
-                        <li>Locate stored procedures or queries with high execution times.</li>
-                    </ul>
-                </li>
-                <li><strong>Monitor Specific Databases:</strong>
-                    <ul>
-                        <li>Focus analysis on queries executed in a specific database.</li>
-                    </ul>
-                </li>
-                <li><strong>Analyze Host Activity:</strong>
-                    <ul>
-                        <li>Identify workload patterns by client hostname.</li>
-                    </ul>
-                </li>
-                <li><strong>Filter by SQL Patterns:</strong>
-                    <ul>
-                        <li>Search for specific SQL statements or patterns for troubleshooting.</li>
-                    </ul>
-                </li>
-            </ul>
-        </div>
+
     
         <!-- Input Parameters -->
         <div class="description-text">
-            <h3 class="table-header">Input Parameters</h3>
+            <h3 class="table-header">Parameters</h3>
             <br />
-            <p><code>@xeSession</code> - The name of the Extended Events session to retrieve data from. Default: <code>'Proc_Calls'</code>.</p>
+            <p><code>@xe_session</code> - The name of the Extended Events session to retrieve data from. Default: <code class="cd">'Proc_Calls'</code>.</p>
             <br />
-            <p><code>@dbName</code> - Filters results to include only events from a specific database. Default: <code>NULL</code> (no filtering).</p>
+            <p><code>@database_name</code> - Filters results to include only events from a specific database. Default: <code>NULL</code> (no filtering).</p>
             <br />
             <p><code>@duration</code> - Filters results to include only events with a duration greater than this value (in microseconds). Default: <code>NULL</code> (no filtering).</p>
             <br />
@@ -920,7 +897,7 @@
     
         <!-- Output Columns -->
         <div class="description-text">
-            <h3 class="table-header">Output Columns</h3>
+            <h3 class="table-header">Output</h3>
             <div class="description-table-container">
                 <table class="description-table">
                     <thead>
