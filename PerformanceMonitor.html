@@ -34,6 +34,7 @@
 
     <div class="sidebar">
         <a href="#Overview">Overview</a>
+        <a href="#sp_sqlins_help">sp_sqlins_help</a>
         <a href="#sp_backup_info">sp_backup_info</a>
         <a href="#sp_table_sizes">sp_table_sizes</a>
         <a href="#sp_current_locks">sp_current_locks</a>
@@ -49,25 +50,7 @@
     
     
     
-    <style>
-        #Overview .description {
-
-            font-family: Arial, sans-serif;
-            font-size: 20px;
-            margin: 20px auto;
-            padding: 10px;
-            max-width: 800px;
-        }
-        #Overview h2 {
-            font-size: xx-large;
-        }
-        #Overview p {
-            margin-top: 22px;
-            line-height: 1.9;  /* More space between lines */
-
-        }
-    </style>
-    
+ 
 <div class="content">
 
  
@@ -79,6 +62,22 @@
         </div>
     </div>
     <br />
+
+    <div id="sp_sqlins_help">
+   
+        <div class="description-text">
+            <h2 class="codehd">sp_sqlins_help</h2>
+            <br>
+           <p>Provides detailed information about the procedures in SQLInspector. It takes an optional parameter, <code>@proc_name</code>, which represents the name of the specific procedure you want to learn about. </p> 
+           <br />
+           <p>If specified, outputs the description of the said procedure, any parameters with their descriptions, as well as the output results produced by the procedure along with explanations.</p>
+           <br />
+           <p>If the optional parameter is not specified, lists all the procedures with short descriptions of what they do.</p>
+        </div>
+    
+       
+    </div>
+
 
     <div id="sp_backup_info">
    
@@ -972,38 +971,9 @@
 
 </div>
 
-<script>
-    // Highlight active sidebar link based on scroll position
-    const sections = document.querySelectorAll('.content > div');
-    const navLinks = document.querySelectorAll('.sidebar a');
+<script src="script.js"></script>
 
-    window.addEventListener('scroll', () => {
-        let current = '%$';
 
-        sections.forEach(section => {
-            const sectionTop = section.offsetTop - 70; // Offset for header
-            if (scrollY >= sectionTop) {
-                current = section.getAttribute('id');
-            }
-        });
-
-        navLinks.forEach(link => {
-            link.classList.remove('active');
-            if (link.getAttribute('href').includes(current)) {
-                link.classList.add('active');
-            }
-        });
-    });
-
-    // Smooth scrolling for sidebar links
-    navLinks.forEach(link => {
-        link.addEventListener('click', event => {
-            event.preventDefault();
-            const targetSection = document.querySelector(link.getAttribute('href'));
-            targetSection.scrollIntoView({ behavior: 'smooth' });
-        });
-    });
-</script>
 
 
     

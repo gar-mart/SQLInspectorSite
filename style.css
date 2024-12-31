@@ -286,6 +286,25 @@ nav a:hover {
     width: calc(100% - 270px);
 }
 
+
+#Overview .description {
+
+    font-family: Arial, sans-serif;
+    font-size: 20px;
+    margin: 20px auto;
+    padding: 10px;
+    max-width: 800px;
+}
+#Overview h2 {
+    font-size: xx-large;
+}
+#Overview p {
+    margin-top: 22px;
+    line-height: 1.9;  /* More space between lines */
+
+}
+
+
 /* Section Styling */
 section {
     margin-bottom: 50px;
